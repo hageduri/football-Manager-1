@@ -1,0 +1,37 @@
+1. create a blade page under : RESOURCES > VIEWS // page to view in browser
+	eg: dist_list.blade.php
+	
+	<h1>District Lists</h1>
+
+	<table border="1">
+    	<tr>
+        <td>Id</td>
+        <td>District Name</td>
+        <td>District Id</td>
+    	</tr>
+    	@foreach ($district_ids as $dist_id)
+    	<tr>
+        <td>{{ $dist_id['id'] }} </td>
+        <td>{{ $dist_id['name'] }} </td>
+        <td>{{ $dist_id['district_id'] }} </td>
+    	</tr>
+    	@endforeach
+
+	</table>
+
+2. php artisan make:model district_id // district_id model create
+
+3. php aritsan make:controller districtController // districtController create
+
+	class districtController extends Controller
+		{
+    			function show(){
+       	 		$data= district_id::all();
+       	 		return view('dist_list', ['district_ids'=>$data]);
+    		}
+    
+	}
+
+
+4. under : ROUTES > WEB.PHP
+	Route::get('/dist_list', [districtController::class, 'show']);

@@ -1,0 +1,8 @@
+insert from district lists page
+
+1.  add this code in dist_list.blade.php
+    <table border="1">
+        <th><a style="color:blueviolet" href="view1">Add</a></th>
+    </table>
+
+    //here 'view1' route is already created

@@ -1,0 +1,10 @@
+Team
+
+1. id 
+2. team_id
+3. long_name
+4. short_name
+5. district
+	(a) town_name
+6. Stadium
+ 

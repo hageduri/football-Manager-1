@@ -1,0 +1,9 @@
+Manager
+
+1. id
+2. manager_id
+3. name
+4. dob
+5. gender
+6. team_id
+7. town_id

@@ -1,0 +1,6 @@
+Town
+
+1. id
+2. town_id
+3. name
+4. district_id

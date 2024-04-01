@@ -1,0 +1,65 @@
+1. create a blade page under : RESOURCES > VIEWS // page to view in browser
+	eg: dist_upload.blade.php
+	
+	<!DOCTYPE html>
+	<html>
+    	<head>
+        <meta charset="utf-8">
+        <title> District Insert </title>
+    	</head>
+    	<body>
+        
+
+        <div align='center'>
+            <form action="{{ url('add') }}" method="POST" enctype="multipart/form-	data">
+                @csrf
+
+                <div style="padding: 10px;">
+                    <label>Name</label>
+                    <input type="text" name="name">
+                </div>
+                <div style="padding: 10px;">
+                    <label>District Id</label>
+                    <input type="number" name="district_id">
+                </div>
+
+                <div style="padding: 10px;">
+                    <input type="submit">
+                </div>
+            </form>
+
+        </div>
+    	</body>
+	</html>
+
+2. php artisan make:model district_id // district_id model create
+
+3. php aritsan make:controller districtController // districtController create
+
+	class districtController extends Controller
+		{
+    			function show(){
+       	 		$data= district_id::all();
+       	 		return view('dist_list', ['district_ids'=>$data]);
+    		}
+
+		function insert(Request $request){
+        	$data = new district_id;
+
+	        $data->name=$request->input('name');
+        	$data->district_id=$request->input('district_id');
+
+	        $data->save();
+
+        	return redirect('add');// redirect to the same page
+    }
+    
+	}
+
+
+4. under : ROUTES > WEB.PHP
+
+	Route::view('add','dist_upload');
+
+	Route::post('add', [districtController::class, 'insert']);
+

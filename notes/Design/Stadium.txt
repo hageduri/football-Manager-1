@@ -1,0 +1,10 @@
+Stadium
+
+1. id
+2. stadium_id
+3. name
+4. Estb_year
+5. District
+	(a)town
+6. Capacity
+7. Status

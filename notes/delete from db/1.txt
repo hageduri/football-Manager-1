@@ -1,0 +1,25 @@
+delete from district lists page
+
+1.  add this code in dist_list.blade.php // to make new colomn
+    <tr>
+        <td>Actions</td> 
+    </tr>
+    <tr>
+        <td>
+            <a href={{"delete/".$dist_id['id'] }}>Delete </a>
+        </td>
+    </tr>
+
+2. add route
+    Route::get('delete/{id}', [districtController::class, 'remove']);
+
+
+3. add this function in the districtController
+
+    function remove($id){   //$id is taken from 
+                            //db(in dist_list.blade.php->$dist_id['id']) 
+                            //for particular row
+        $data= district_id::find($id); // district_id is the table name
+        $data->delete();
+        return redirect('dist_list');
+    }

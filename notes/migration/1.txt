@@ -1,0 +1,7 @@
+php artisan make:migration create_flights_table
+
+
+php artisan schema:dump
+ 
+# Dump the current database schema and prune all existing migrations...
+php artisan schema:dump --prune
